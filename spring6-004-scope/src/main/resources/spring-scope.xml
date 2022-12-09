@@ -7,6 +7,17 @@
 <!--    1.第一个值单例，singleton-->
 <!--    2.prototype 原型/多例-->
 <!--    3.引入web框架，例如springmvc  request一次请求当前一个bean，session一次会话当中只有一个bean-->
-    <bean id="springBean" class="com.powernode.spring6.bean.SpringBean" scope="session">
+    <bean id="springBean" class="com.powernode.spring6.bean.SpringBean" scope="myThread"/>
+<!--    配置自定义作用域-->
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="myThread">
+<!--                    这个scope类使用的类是spring提供的-->
+                    <bean class="org.springframework.context.support.SimpleThreadScope"/>
+                </entry>
+            </map>
+        </property>
     </bean>
+
 </beans>

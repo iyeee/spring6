@@ -24,4 +24,26 @@ public class SpringBeanScope {
         System.out.println(springBean2);
 
     }
+    @Test
+    public void testThread(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-scope.xml");
+        SpringBean springBean = applicationContext.getBean("springBean", SpringBean.class);
+        System.out.println(springBean);
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                SpringBean springBean3 = applicationContext.getBean("springBean", SpringBean.class);
+//                SpringBean springBean4 = applicationContext.getBean("springBean", SpringBean.class);
+//                System.out.println(springBean3);
+//                System.out.println(springBean4);
+//            }
+//        }).start();
+        new Thread(()->{
+            SpringBean springBean3 = applicationContext.getBean("springBean", SpringBean.class);
+                SpringBean springBean4 = applicationContext.getBean("springBean", SpringBean.class);
+                System.out.println(springBean3);
+                System.out.println(springBean4);
+        }).start();
+    }
 }
