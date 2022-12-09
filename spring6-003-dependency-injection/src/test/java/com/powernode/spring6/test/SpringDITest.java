@@ -2,6 +2,7 @@ package com.powernode.spring6.test;
 
 import com.powernode.spring6.bean.*;
 import com.powernode.spring6.jdbc.MyDataSource;
+import com.powernode.spring6.jdbc.MyDataSource1;
 import com.powernode.spring6.service.CustomerService;
 import com.powernode.spring6.service.OrderService;
 import com.powernode.spring6.service.UserService;
@@ -73,5 +74,62 @@ public class SpringDITest {
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-array.xml");
         ArrayTest arrayTest = applicationContext.getBean("arrayTest", ArrayTest.class);
         System.out.println(arrayTest);
+    }
+
+    @Test
+    public void testCollection(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-collection.xml");
+        Person personBean = applicationContext.getBean("personBean", Person.class);
+        System.out.println(personBean);
+    }
+
+    @Test
+    public void testNull(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("set-di.xml");
+        Cat cat = applicationContext.getBean("cat", Cat.class);
+        System.out.println(cat);
+    }
+
+    @Test
+    public void testSpecial(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("set-di.xml");
+        MathBean mathBean = applicationContext.getBean("mathBean", MathBean.class);
+        System.out.println(mathBean);
+    }
+    @Test
+    public void testP(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-p.xml");
+        Dog dogBean = applicationContext.getBean("dogBean", Dog.class);
+        System.out.println(dogBean);
+    }
+    @Test
+    public void testC(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-c.xml");
+        People peopleBean = applicationContext.getBean("peopleBean", People.class);
+        System.out.println(peopleBean);
+    }
+    @Test
+    public void testUtil(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-util.xml");
+        MyDataSource1 ds1 = applicationContext.getBean("ds1", MyDataSource1.class);
+        System.out.println(ds1);
+    }
+    @Test
+    public void testAutowire(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-autowire.xml");
+//        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
+//        orderService.generate();
+
+
+        CustomerService cs = applicationContext.getBean("cs", CustomerService.class);
+        cs.save();
+    }
+
+    @Test
+    public void testProperties(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-properties.xml");
+        MyDataSource ds = applicationContext.getBean("ds", MyDataSource.class);
+        System.out.println(ds);
+
     }
 }

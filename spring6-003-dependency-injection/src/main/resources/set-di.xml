@@ -47,4 +47,24 @@
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
     </bean>
+
+    <bean id="cat" class="com.powernode.spring6.bean.Cat">
+<!--            1.不给属性注入值，默认注入null-->
+<!--            2.null-->
+        <property name="name">
+            <null/>
+        </property>
+<!--        注入空字符串两种方式-->
+<!--        1.“”-->
+<!--        2.<value/> -->
+        <property name="age" value="4"/>
+    </bean>
+    <bean id="mathBean" class="com.powernode.spring6.bean.MathBean">
+<!--        1.使用实体符号-->
+<!--        <property name="result" value="2&lt;3"/>-->
+<!--        2.使用<![CDATA[]]>，里面特殊符号不会解析，xml中的语法-->
+            <property name="result">
+                <value><![CDATA[2<3]]></value>
+            </property>
+    </bean>
 </beans>
