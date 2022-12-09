@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    默认是单例的 singleton-->
+<!--    1.第一个值单例，singleton-->
+<!--    2.prototype 原型/多例-->
+<!--    3.引入web框架，例如springmvc  request一次请求当前一个bean，session一次会话当中只有一个bean-->
+    <bean id="springBean" class="com.powernode.spring6.bean.SpringBean" scope="session">
+    </bean>
+</beans>
