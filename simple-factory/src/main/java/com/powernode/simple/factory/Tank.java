@@ -1,7 +1,13 @@
-package com.powernode.simple.factory;/**
+package com.powernode.simple.factory;
+
+/**
  * @Author iyeee
  * @Date 2022/12/13 22:47
- *  @Version 1.0.1
+ * @Version 1.0.1
  */
-public class Tank {
+public class Tank extends Weapen{
+    @Override
+    public void attack() {
+        System.out.println("tank");
+    }
 }

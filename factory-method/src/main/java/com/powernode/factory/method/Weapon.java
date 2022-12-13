@@ -1,7 +1,10 @@
-package com.powernode.factory.method;/**
+package com.powernode.factory.method;
+
+/**
  * @Author iyeee
  * @Date 2022/12/13 23:33
- *  @Version 1.0.1
+ * @Version 1.0.1
  */
-public class Weapon {
+public abstract class Weapon {
+    public abstract void attack();
 }
