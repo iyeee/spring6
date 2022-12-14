@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    需要手动指定初始化方法，和销毁方法，-->
+    <bean id="user" class="com.powernode.spring6.bean.User" init-method="initBean" destroy-method="destroyBean" scope="prototype">
+        <property name="name" value="tom"/>
+    </bean>
+
+<!--    配置bean后处理器-->
+<!--    注意，这个bean后处理器将作用在整个配置文件所有的bean-->
+    <bean class="com.powernode.spring6.bean.LogBeanProcessor"/>
+<!--    <bean id="vip" class="com.powernode.spring6.bean.Vip"/>-->
+</beans>

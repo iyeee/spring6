@@ -1,0 +1,20 @@
+源码分析：
+DefaultSingletonBeanRegistry.java中三个重要的缓存
+    private final Map<String, Object> singletonObjects   一级缓存
+
+    private final Map<String, Object> earlySingletonObjects  二级缓存
+
+    private final Map<String, ObjectFactory<?>> singletonFactories  三级缓存
+
+    这三个缓存都是map集合
+    map集合key存储的都是bean的name（bean id）
+
+
+
+   一级缓存存储的是：完整的bean单例对象，也就是这个缓存中的bean对象的属性已经赋值了，是一个完整的bean对象
+   二级缓存存储的是：早期的bean单例对象，这个缓存中的单例bean对象的属性没有赋值，只是一个早期的实例对象
+   三级缓存存储的是：单例工厂对象，这个里面存储大量的“工厂对象”，每一个单例bean对象都会对应一个单例工厂对象
+                  这个集合中存储的是，创建该单例对象时对应的那个单例工厂对象
+
+
+
