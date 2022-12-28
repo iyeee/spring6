@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="user" class="com.powernode.myspring.bean.User">
+        <property name="name" value="张三"/>
+        <property name="age" value="30"/>
+    </bean>
+    <bean id="userDaoBean" class="com.powernode.myspring.bean.UserDao"/>
+
+    <bean id="userService" class="com.powernode.myspring.bean.UserService">
+        <property name="userDao" ref="userDaoBean"/>
+    </bean>
+</beans>
