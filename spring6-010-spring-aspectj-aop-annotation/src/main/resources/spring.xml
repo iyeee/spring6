@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/beans/spring-context.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/beans/spring-aop.xsd">
+
+<!--开启aspectj自动代理-->
+<!--spring容器在扫描类的时候，查看该类是否有@Aspect注解，如果有则生成代理对象-->
+<!--proxy-target-class="true"强制使用CGLIB动态代理，false则接口使用JDK动态代理，反之使用CGLIB动态代理-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+</beans>
+
