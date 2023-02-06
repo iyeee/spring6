@@ -16,10 +16,14 @@ import javax.sql.DataSource;
  * @Version 1.0.1
  */
 @Configuration
+// 开启事物注解
 @EnableTransactionManagement
 @ComponentScan({"com.powernode.bank"})
 public class SpringConfig {
 
+
+    // Spring框架看见bean注解后,会调用这个被标注的方法，这个方法的返回值是一个Java对象，这个Java对象会自动纳入Ioc容器管理
+    // 返回的对象就是Spring容器中的一个bean
     @Bean("druidDataSource")
     public DruidDataSource getdruidDataSource(){
         DruidDataSource druidDataSource=new DruidDataSource();
@@ -34,6 +38,7 @@ public class SpringConfig {
         return new JdbcTemplate(dataSource);
     }
     @Bean("txManager")
+    // spring在调用这个方法的时候，会自动给我们传过来一个DataSource对象
     public DataSourceTransactionManager getDataSourceTransactionManager(DataSource dataSource){
         DataSourceTransactionManager dataSourceTransactionManager=new DataSourceTransactionManager();
         dataSourceTransactionManager.setDataSource(dataSource);
